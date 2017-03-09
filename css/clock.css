@@ -1,0 +1,105 @@
+*{
+    padding: 0;
+    border: 0;
+    margin: 0;
+}
+
+#clock{
+    position:absolute;
+    height:325px;
+    width: 100%;
+    background: red;
+}
+
+#controls{
+    position:absolute;
+    top: 400px;
+}
+
+.led{
+    position: absolute;
+}
+
+#led0{
+    top: 0px;
+    left:0px;
+}
+
+#led1{
+    top: 0px;
+    left:200px;
+}
+
+#led2{
+    top: 0px;
+    left:450px;
+}
+
+#led3{
+    top: 0px;
+    left:650px;
+}
+
+#led4{
+    top: 0px;
+    left:900px;
+}
+
+#led5{
+    top: 0px;
+    left:1100px;
+}
+
+.seg {
+    width: 150px;
+    height: 25px;
+    fill: blue;
+    position: absolute;
+}
+
+#sega{
+    left: 25px;
+}
+
+#segb{
+    left: 100px;
+    top: 75px;
+    transform: rotate(90deg);
+}
+
+#segc{
+    left: 100px;
+    top: 225px;
+    transform: rotate(90deg);
+}
+
+#segd{
+    left: 25px;
+    top: 300px;
+}
+
+#sege{
+    left: -50px;
+    top: 225px;
+    transform: rotate(90deg);
+}
+
+#segf{
+    left: -50px;
+    top: 75px;
+    transform: rotate(90deg);
+}
+
+#segg{
+    left: 25px;
+    top: 150px;
+}
+button {
+    width: 10%;
+    height: 20%;
+    left: 0;
+}
+input {
+    border: 1px solid black;
+    color: black;
+}

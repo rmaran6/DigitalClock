@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>DigitalClock</title>
+        <script type="text/javascript" src="../js/clock.js"></script>
+        <link rel="stylesheet" href="../css/clock.css" type="text/css" />
+    </head>
+    <button onclick = "setMode(1); Timer('blue', 'red')">Timer</button>
+    <button onclick = "setMode(2); showContinuousTime('blue', 'red')">Clock</button>
+    <button onclick= "setMode(3); Alarm('blue', 'red')">Alarm</button>
+    <button onclick= "removeAlarm()">RemoveAlarm</button>
+    <button onclick= "setMode(4); Stopwatch('blue', 'red')">Stopwatch</button>
+    <button onclick= "Stop()">Stop</button>
+    <button onclick= "Reset()">Reset</button>
+    <form id="form">
+        <div1> Timer Value:</div1>
+        <input type="number" id="userInput" />
+        <div1> Alarm Hour:</div1>
+        <input type="number" id="userInput1" />
+        <div1> Alarm Minute:</div1>
+        <input type="number" id="userInput2" />
+        <div id="controls">
+        <select id="timezone">
+            <option value="-12"> UTC-12:00 U.S. Minor Outlying Islands</option>
+            <option value="-11"> UTC-11:00 United States, New Zealand</option>
+            <option value="-10"> UTC-10:00 Hawaii/Aleutian Time Zone</option>
+            <option value="-9"> UTC-9:00 Alaska Time Zone</option>
+            <option value="-8"> UTC-8:00 Pacific Time Zone</option>
+            <option value="-7"> UTC-7:00 Mountain Time Zone</option>
+            <option value="-6"> UTC-6:00 Central Time Zone</option>
+            <option value="-5" selected> UTC-5:00 Eastern Time Zone</option>
+            <option value="-4"> UTC-4:00 Atlantic Time Zone</option>
+            <option value="-3"> UTC-3:00 Argentina, Brazil, Chile</option>
+            <option value="-2"> UTC-2:00 South Georgia and South Sandwich Islands</option>
+            <option value="-1"> UTC-1:00 Cape Verde, Azore Islands</option>
+            <option value="0"> UTC-0:00 Portugal, United Kingdom</option>
+            <option value="1"> UTC+1:00 France, Germany, Italy</option>
+            <option value="2"> UTC+2:00 Egypt, Greece, South Africa </option>
+            <option value="3"> UTC+3:00 Turkey, Russia, Kenya</option>
+            <option value="4"> UTC+4:00 Armenia, France, Russia</option>
+            <option value="5"> UTC+5:00 Pakistan, Uzbekistan, Russia</option>
+            <option value="6"> UTC+6:00 Bangladesh, Bhutan</option>
+            <option value="7"> UTC+7:00 Australia, Cambodia, Indonesia</option>
+            <option value="8"> UTC+8:00 China, Malaysia, Singapore</option>
+            <option value="9"> UTC+9:00 South Korea, Japan</option>
+            <option value="10"> UTC+10:00 Australia, U.S.</option>
+            <option value="11"> UTC+11:00 Australia, France</option>
+            <option value="12"> UTC+12:00 U.S. France, New Zealand</option>
+        </select>
+    </div>
+    </form>
+        <div id="clock">
+            <div id="led0" class="led">
+                <svg id="sega" class="seg"><polygon points="25,0 125,0 150,12.5 125,25 25,25 0,12.5"/></svg>
+                <svg id="segb" class="seg"><polygon points="25,0 125,0 150,12.5 125,25 25,25 0,12.5"/></svg>
+                <svg id="segc" class="seg"><polygon points="25,0 125,0 150,12.5 125,25 25,25 0,12.5"/></svg>
+                <svg id="segd" class="seg"><polygon points="25,0 125,0 150,12.5 125,25 25,25 0,12.5"/></svg>
+                <svg id="sege" class="seg"><polygon points="25,0 125,0 150,12.5 125,25 25,25 0,12.5"/></svg>
+                <svg id="segf" class="seg"><polygon points="25,0 125,0 150,12.5 125,25 25,25 0,12.5"/></svg>
+                <svg id="segg" class="seg"><polygon points="25,0 125,0 150,12.5 125,25 25,25 0,12.5"/></svg>
+            </div>
+            <div id="led1" class="led">
+                <svg id="sega" class="seg"><polygon points="25,0 125,0 150,12.5 125,25 25,25 0,12.5"/></svg>
+                <svg id="segb" class="seg"><polygon points="25,0 125,0 150,12.5 125,25 25,25 0,12.5"/></svg>
+                <svg id="segc" class="seg"><polygon points="25,0 125,0 150,12.5 125,25 25,25 0,12.5"/></svg>
+                <svg id="segd" class="seg"><polygon points="25,0 125,0 150,12.5 125,25 25,25 0,12.5"/></svg>
+                <svg id="sege" class="seg"><polygon points="25,0 125,0 150,12.5 125,25 25,25 0,12.5"/></svg>
+                <svg id="segf" class="seg"><polygon points="25,0 125,0 150,12.5 125,25 25,25 0,12.5"/></svg>
+                <svg id="segg" class="seg"><polygon points="25,0 125,0 150,12.5 125,25 25,25 0,12.5"/></svg>
+            </div>
+            <div id="led2" class="led">
+                <svg id="sega" class="seg"><polygon points="25,0 125,0 150,12.5 125,25 25,25 0,12.5"/></svg>
+                <svg id="segb" class="seg"><polygon points="25,0 125,0 150,12.5 125,25 25,25 0,12.5"/></svg>
+                <svg id="segc" class="seg"><polygon points="25,0 125,0 150,12.5 125,25 25,25 0,12.5"/></svg>
+                <svg id="segd" class="seg"><polygon points="25,0 125,0 150,12.5 125,25 25,25 0,12.5"/></svg>
+                <svg id="sege" class="seg"><polygon points="25,0 125,0 150,12.5 125,25 25,25 0,12.5"/></svg>
+                <svg id="segf" class="seg"><polygon points="25,0 125,0 150,12.5 125,25 25,25 0,12.5"/></svg>
+                <svg id="segg" class="seg"><polygon points="25,0 125,0 150,12.5 125,25 25,25 0,12.5"/></svg>
+            </div>
+            <div id="led3" class="led">
+                <svg id="sega" class="seg"><polygon points="25,0 125,0 150,12.5 125,25 25,25 0,12.5"/></svg>
+                <svg id="segb" class="seg"><polygon points="25,0 125,0 150,12.5 125,25 25,25 0,12.5"/></svg>
+                <svg id="segc" class="seg"><polygon points="25,0 125,0 150,12.5 125,25 25,25 0,12.5"/></svg>
+                <svg id="segd" class="seg"><polygon points="25,0 125,0 150,12.5 125,25 25,25 0,12.5"/></svg>
+                <svg id="sege" class="seg"><polygon points="25,0 125,0 150,12.5 125,25 25,25 0,12.5"/></svg>
+                <svg id="segf" class="seg"><polygon points="25,0 125,0 150,12.5 125,25 25,25 0,12.5"/></svg>
+                <svg id="segg" class="seg"><polygon points="25,0 125,0 150,12.5 125,25 25,25 0,12.5"/></svg>
+            </div>
+            <div id="led4" class="led">
+                <svg id="sega" class="seg"><polygon points="25,0 125,0 150,12.5 125,25 25,25 0,12.5"/></svg>
+                <svg id="segb" class="seg"><polygon points="25,0 125,0 150,12.5 125,25 25,25 0,12.5"/></svg>
+                <svg id="segc" class="seg"><polygon points="25,0 125,0 150,12.5 125,25 25,25 0,12.5"/></svg>
+                <svg id="segd" class="seg"><polygon points="25,0 125,0 150,12.5 125,25 25,25 0,12.5"/></svg>
+                <svg id="sege" class="seg"><polygon points="25,0 125,0 150,12.5 125,25 25,25 0,12.5"/></svg>
+                <svg id="segf" class="seg"><polygon points="25,0 125,0 150,12.5 125,25 25,25 0,12.5"/></svg>
+                <svg id="segg" class="seg"><polygon points="25,0 125,0 150,12.5 125,25 25,25 0,12.5"/></svg>
+            </div>
+            <div id="led5" class="led">
+                <svg id="sega" class="seg"><polygon points="25,0 125,0 150,12.5 125,25 25,25 0,12.5"/></svg>
+                <svg id="segb" class="seg"><polygon points="25,0 125,0 150,12.5 125,25 25,25 0,12.5"/></svg>
+                <svg id="segc" class="seg"><polygon points="25,0 125,0 150,12.5 125,25 25,25 0,12.5"/></svg>
+                <svg id="segd" class="seg"><polygon points="25,0 125,0 150,12.5 125,25 25,25 0,12.5"/></svg>
+                <svg id="sege" class="seg"><polygon points="25,0 125,0 150,12.5 125,25 25,25 0,12.5"/></svg>
+                <svg id="segf" class="seg"><polygon points="25,0 125,0 150,12.5 125,25 25,25 0,12.5"/></svg>
+                <svg id="segg" class="seg"><polygon points="25,0 125,0 150,12.5 125,25 25,25 0,12.5"/></svg>
+            </div>             
+        </div>
+    </body>
+</html>
+    
